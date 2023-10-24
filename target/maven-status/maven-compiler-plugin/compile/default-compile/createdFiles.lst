@@ -1,0 +1,8 @@
+com\dagnerchuman\springbootmicroservice1Product\model\Producto.class
+com\dagnerchuman\springbootmicroservice1Product\service\ProductoService.class
+com\dagnerchuman\springbootmicroservice1Product\security\SecurityConfig.class
+com\dagnerchuman\springbootmicroservice1Product\service\ProductoServiceImpl.class
+com\dagnerchuman\springbootmicroservice1Product\repository\ProductoRepository.class
+com\dagnerchuman\springbootmicroservice1Product\security\SecurityConfig$1.class
+com\dagnerchuman\springbootmicroservice1Product\SpringBootMicroservice1ProductApplication.class
+com\dagnerchuman\springbootmicroservice1Product\controller\ProductoController.class
