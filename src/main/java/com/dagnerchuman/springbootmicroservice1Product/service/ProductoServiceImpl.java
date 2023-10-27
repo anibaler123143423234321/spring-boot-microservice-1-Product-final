@@ -85,4 +85,9 @@ public class ProductoServiceImpl implements ProductoService {
         }
     }
 
+    @Override
+    public List<Producto> findProductosPorNegocio(Long negocioId) {
+        return productoRepository.findByNegocioId(negocioId);
+    }
+
 }

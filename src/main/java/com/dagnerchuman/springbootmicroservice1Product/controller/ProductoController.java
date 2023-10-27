@@ -91,5 +91,13 @@ public class ProductoController {
         }
     }
 
+    // Nuevo endpoint para buscar productos por negocio
+    @GetMapping("/pornegocio/{negocioId}")
+    public ResponseEntity<?> getProductosPorNegocio(@PathVariable Long negocioId) {
+        List<Producto> productos = productoService.findProductosPorNegocio(negocioId);
+        return ResponseEntity.ok(productos);
+    }
+
+
 }
 

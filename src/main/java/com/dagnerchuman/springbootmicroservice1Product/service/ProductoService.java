@@ -20,4 +20,7 @@ public interface ProductoService {
 
 
     Producto findProductoById(Long productoId);
+
+    List<Producto> findProductosPorNegocio(Long negocioId); // Nuevo método para buscar productos por negocio
+
 }
