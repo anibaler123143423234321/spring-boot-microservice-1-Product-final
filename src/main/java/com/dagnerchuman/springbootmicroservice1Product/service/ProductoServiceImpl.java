@@ -21,10 +21,28 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public Producto saveProducto(Producto producto)
-    {
+    public Producto saveProducto(Producto producto) {
+        // Verificar si el stock es suficiente
+        if (producto.getStock() < 0) {
+            throw new IllegalArgumentException("El stock no puede ser negativo");
+        }
         producto.setFechaCreacion(LocalDateTime.now());
         return productoRepository.save(producto);
+    }
+
+    @Override
+    public boolean comprarProducto(Long productoId, int cantidad) {
+        Optional<Producto> optionalProducto = productoRepository.findById(productoId);
+        if (optionalProducto.isPresent()) {
+            Producto producto = optionalProducto.get();
+            int stockActual = producto.getStock();
+            if (stockActual >= cantidad) {
+                producto.setStock(stockActual - cantidad);
+                productoRepository.save(producto);
+                return true; // La compra se realizó con éxito
+            }
+        }
+        return false; // No hay suficiente stock para la compra
     }
 
     @Override

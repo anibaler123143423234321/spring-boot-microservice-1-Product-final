@@ -99,5 +99,16 @@ public class ProductoController {
     }
 
 
+    @PostMapping("/comprar/{productoId}")
+    public ResponseEntity<String> comprarProducto(@PathVariable Long productoId, @RequestParam int cantidad) {
+        boolean compraExitosa = productoService.comprarProducto(productoId, cantidad);
+        if (compraExitosa) {
+            return ResponseEntity.ok("Compra realizada con éxito");
+        } else {
+            return ResponseEntity.badRequest().body("No hay suficiente stock para la compra");
+        }
+    }
+
+
 }
 

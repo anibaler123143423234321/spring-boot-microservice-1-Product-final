@@ -7,6 +7,8 @@ import java.util.List;
 public interface ProductoService {
     Producto saveProducto(Producto producto);
 
+    boolean comprarProducto(Long productoId, int cantidad);
+
     void deleteProducto(Long productoId);
 
     List<Producto> findAllProductos();
