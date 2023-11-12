@@ -83,7 +83,12 @@ public class ProductoServiceImpl implements ProductoService {
             Producto productoExistente = optionalProducto.get();
 
             // Actualiza los campos del producto existente con los valores del nuevo producto
-            productoExistente.setStock(nuevoProducto.getStock());
+            if (nuevoProducto.getStock() != null) {
+                productoExistente.setStock(nuevoProducto.getStock());
+            }
+            if (nuevoProducto.getPicture() != null) {
+                productoExistente.setPicture(nuevoProducto.getPicture());
+            }
 
             // Guarda el producto actualizado
             return productoRepository.save(productoExistente);
@@ -91,6 +96,7 @@ public class ProductoServiceImpl implements ProductoService {
             throw new EntityNotFoundException("Producto no encontrado con ID: " + productoId);
         }
     }
+
 
 
     @Override
